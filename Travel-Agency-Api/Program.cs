@@ -3,9 +3,15 @@ using Travel_Agency_Api;
 var builder = WebApplication.CreateBuilder(args);
 
 // Configuration
-var appSettings = new ConfigurationBuilder()
+#if DEBUG
+    var appSettings = new ConfigurationBuilder()
+    .SetBasePath(Directory.GetCurrentDirectory())
+    .AddJsonFile("appsettings.Development.json");
+#else
+    var appSettings = new ConfigurationBuilder()
     .SetBasePath(Directory.GetCurrentDirectory())
     .AddJsonFile("appsettings.json");
+#endif
 
 var configuration = appSettings.Build();
 
