@@ -11,12 +11,10 @@ var serviceCollection = new ServiceCollection();
 serviceCollection.AddLogging(builder => { builder.AddConsole(); });
 
 
-var connectionString = "server=db;port=3306;database=TravelAgency;user=travelagency;password=travelagency";
-
-var serverVersion = new MySqlServerVersion(new Version(8, 0, 33));
+var connectionString = "server=dpg-cr1bu05ds78s739r32hg-a;port=5432;database=travel_agency_hq44;user=travel_agency;password=KfBkjCQZyosMghKOC4AfNaIvLAaz2mNu";
 
 var optionsBuilder = new DbContextOptionsBuilder<TravelAgencyContext>();
-optionsBuilder.UseMySql(connectionString, serverVersion);
+optionsBuilder.UseNpgsql(connectionString);
 
 var serviceProvider = serviceCollection.BuildServiceProvider();
 var logger = serviceProvider.GetRequiredService<ILogger<Program>>();
