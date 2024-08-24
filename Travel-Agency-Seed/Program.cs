@@ -11,7 +11,7 @@ var serviceCollection = new ServiceCollection();
 serviceCollection.AddLogging(builder => { builder.AddConsole(); });
 
 
-var connectionString = "Host=dpg-cr1bu05ds78s739r32hg-a;Port=5432;database=travel_agency_hq44;Username=travel_agency;Password=KfBkjCQZyosMghKOC4AfNaIvLAaz2mNu";
+var connectionString = "Host=ep-muddy-mountain-a6w6yukp.us-west-2.aws.neon.tech;Port=5432;database=travel-agency;Username=travel-agency_owner;Password=TO8btUR5YvaF";
 
 var optionsBuilder = new DbContextOptionsBuilder<TravelAgencyContext>();
 optionsBuilder.UseNpgsql(connectionString);
