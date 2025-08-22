@@ -5,12 +5,14 @@ var builder = WebApplication.CreateBuilder(args);
 // Configuration
 #if DEBUG
     var appSettings = new ConfigurationBuilder()
-    .SetBasePath(Directory.GetCurrentDirectory())
-    .AddJsonFile("appsettings.Development.json");
+        .SetBasePath(Directory.GetCurrentDirectory())
+        .AddJsonFile("appsettings.Development.json")
+        .AddEnvironmentVariables(); // ✅ Agrega env vars
 #else
     var appSettings = new ConfigurationBuilder()
-    .SetBasePath(Directory.GetCurrentDirectory())
-    .AddJsonFile("appsettings.json");
+        .SetBasePath(Directory.GetCurrentDirectory())
+        .AddJsonFile("appsettings.json")
+        .AddEnvironmentVariables(); // ✅ Agrega env vars
 #endif
 
 var configuration = appSettings.Build();
